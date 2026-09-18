@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Gentlemen's Barber Kuaför</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-brand" href="index.html">
+      <span class="logo-mark js-logo-icon"></span>
+      <span class="js-shop-short">Gentlemen's Barber</span>
+    </a>
+    <div class="nav-right">
+      <a class="btn btn-outline btn-sm" href="index.html">← Siteye Dön</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Temayı değiştir"></button>
+    </div>
+  </nav>
+
+  <div class="admin-wrap">
+
+    <div id="login-view">
+      <div class="admin-header">
+        <h2>Admin Girişi</h2>
+      </div>
+      <div class="card">
+        <form id="admin-login-form">
+          <div class="field">
+            <label>Şifre</label>
+            <input type="password" id="admin-pass" required placeholder="••••••••">
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Giriş Yap</button>
+          </div>
+          <div id="admin-login-msg"></div>
+        </form>
+      </div>
+    </div>
+
+    <div id="panel-view" style="display:none;">
+      <div class="admin-header">
+        <h2>Randevular</h2>
+        <div style="display:flex; gap:16px; align-items:center;">
+          <button class="link-btn" id="refresh-btn">Yenile</button>
+          <button class="link-btn" id="logout-btn">Çıkış</button>
+        </div>
+      </div>
+
+      <div class="admin-summary" id="admin-summary"></div>
+
+      <div class="admin-toolbar">
+        <div class="admin-filter-group">
+          <label for="admin-barber-filter">Berber</label>
+          <select id="admin-barber-filter">
+            <option value="all">Tümü</option>
+          </select>
+        </div>
+        <div class="admin-filter-group">
+          <label for="admin-date-filter">Tarih</label>
+          <input type="date" id="admin-date-filter" />
+        </div>
+      </div>
+
+      <div id="admin-list"></div>
+    </div>
+
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.js-logo-icon').forEach(el => el.innerHTML = logoMarkSVG());
+    });
+  </script>
+</body>
+</html>
